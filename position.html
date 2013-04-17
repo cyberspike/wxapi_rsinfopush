@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>mymap</title>
+<style type="text/css">
+html{height:100%}
+body{height:100%;margin:0px;padding:0px}
+#container{height:100%}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+</head>
+ 
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+var map = new BMap.Map("container");          
+var ctr = new BMap.Point(114.366007, 30.534953);  
+map.centerAndZoom(ctr, 14);                 
+map.addControl(new BMap.NavigationControl()); 
+map.addControl(new BMap.ScaleControl());  
+map.addControl(new BMap.MapTypeControl());
+
+
+
+map.addEventListener("click", function (e){
+  var opts = {  
+              width : 250,     // 信息窗口宽度  
+              height: 100,     // 信息窗口高度  
+              title : "Position"  // 信息窗口标题  
+             }  
+  var content= "lat:"+e.point.lat+"; lng:"+e.point.lng;
+  var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象  
+  map.openInfoWindow(infoWindow, e.point);      // 打开信息窗口  
+});
+
+
+</script>
+</body>
+
+</html>

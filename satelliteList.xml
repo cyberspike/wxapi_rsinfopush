@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<satellites>
+  <satellite>
+    <id>s01</id>
+	<name>MSS</name>
+  </satellite>
+  <satellite>
+    <id>s02</id>
+	<name>TM</name>
+  </satellite>
+  <satellite>
+    <id>s03</id>
+	<name>SPOT1-3</name>
+  </satellite>
+  <satellite>
+    <id>s04</id>
+	<name>SPOT5</name>
+  </satellite>
+  <satellite>
+    <id>s05</id>
+	<name>quickbird</name>
+  </satellite>
+</satellites>

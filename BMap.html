@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>mymap</title>
+<style type="text/css">
+html{height:100%}
+body{height:100%;margin:0px;padding:0px}
+#container{height:100%}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+</head>
+ 
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+var map = new BMap.Map("container");          
+var ctr = new BMap.Point(114.366007, 30.534953);  
+map.centerAndZoom(ctr, 17);                 
+map.addControl(new BMap.NavigationControl()); 
+map.addControl(new BMap.ScaleControl());  
+map.addControl(new BMap.MapTypeControl());
+
+var libMarker = new BMap.Marker(new BMap.Point(114.367579, 30.535315));
+libMarker.addEventListener("click", function (e){
+  var opts = {  
+              width : 250,     // 信息窗口宽度  
+              height: 100,     // 信息窗口高度  
+              title : "[WHU Info Library]"  // 信息窗口标题  
+             }  
+  var content= "good good study,day day up!";
+  var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象  
+  map.openInfoWindow(infoWindow, e.point);      // 打开信息窗口  
+});
+map.addOverlay(libMarker); 
+
+var TBMarker = new BMap.Marker(new BMap.Point(114.367543, 30.532857));
+TBMarker.addEventListener("click", function (e){
+  var opts = {  
+              width : 250,     // 信息窗口宽度  
+              height: 100,     // 信息窗口高度  
+              title : "[WHU Info TB]"  // 信息窗口标题  
+             }  
+  var content= "teaching building sucks!";
+  var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象  
+  map.openInfoWindow(infoWindow, e.point);      // 打开信息窗口  
+});
+map.addOverlay(TBMarker);
+
+
+var RSMarker = new BMap.Marker(new BMap.Point(114.366528, 30.532328));
+RSMarker.addEventListener("click", function (e){
+  var opts = {  
+              width : 250,     // 信息窗口宽度  
+              height: 100,     // 信息窗口高度  
+              title : "[WHU RS]"  // 信息窗口标题  
+             }  
+  var content= "well,here we are";
+  var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象  
+  map.openInfoWindow(infoWindow, e.point);      // 打开信息窗口  
+});
+map.addOverlay(RSMarker);
+
+
+</script>
+</body>
+
+</html>
